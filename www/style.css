@@ -1,0 +1,71 @@
+/* style.css - Kos Qullah | Palette: netral + 1 aksen hijau gelap */
+:root {
+    --primary: #0f5132;
+    --primary-dark: #0a3b24;
+    --surface: #ffffff;
+    --surface-muted: #f8f9fa;
+    --text: #212529;
+    --text-muted: #6c757d;
+    --border: #dee2e6;
+}
+
+body {
+    background: var(--surface-muted);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Navbar pakai aksen primer */
+.navbar-dark, .navbar-dark.bg-primary {
+    background: var(--primary) !important;
+}
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link { color: #fff; }
+
+/* Tombol primary konsisten */
+.btn-primary {
+    --bs-btn-bg: var(--primary);
+    --bs-btn-border-color: var(--primary);
+    --bs-btn-hover-bg: var(--primary-dark);
+    --bs-btn-hover-border-color: var(--primary-dark);
+    --bs-btn-active-bg: var(--primary-dark);
+    --bs-btn-active-border-color: var(--primary-dark);
+    --bs-btn-disabled-bg: var(--primary);
+    --bs-btn-disabled-border-color: var(--primary);
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--primary);
+    --bs-btn-border-color: var(--primary);
+    --bs-btn-hover-bg: var(--primary);
+    --bs-btn-hover-border-color: var(--primary);
+    --bs-btn-active-bg: var(--primary);
+    --bs-btn-active-border-color: var(--primary);
+}
+a { color: var(--primary); }
+a:hover { color: var(--primary-dark); }
+.text-primary { color: var(--primary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.border-primary { border-color: var(--primary) !important; }
+
+/* Heading section rapi */
+.page-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: .5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* Stat card angka besar */
+.stat-card .card-body { padding: 1.1rem 1.25rem; }
+.stat-card h3 { letter-spacing: -.5px; }
+
+/* Thumbnail tabel konsisten */
+.thumb { width: 50px; height: 50px; object-fit: cover; }
+
+/* Alamat truncate */
+.addr { max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Hover row tabel */
+.table-hover tbody tr:hover { background: var(--surface-muted); }

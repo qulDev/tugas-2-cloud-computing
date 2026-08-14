@@ -1,0 +1,61 @@
+# compose.yml - Arsitektur multi-container Aplikasi Manajemen Kos-Kosan
+# Tugas 2 Cloud Computing - M. Rizqullah (qullah)
+# Soal 5: 3 services + volume + depends_on
+# Jalankan:  podman compose up -d --build
+
+services:
+  # ------------------------------------------------------------
+  # 1. MariaDB (WAJIB jalan pertama)
+  # ------------------------------------------------------------
+  mariadb-qullah:
+    build:
+      context: .
+      dockerfile: mariadb.Containerfile
+    container_name: mariadb-qullah
+    ports:
+      - "3306:3306"          # Soal 5b
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass123
+      MARIADB_DATABASE: db_kos
+      MARIADB_USER: kos_user
+      MARIADB_PASSWORD: kos_pass123
+    volumes:
+      - db_data_qullah:/var/lib/mysql   # Soal 5b: named volume permanen
+    restart: unless-stopped
+
+  # ------------------------------------------------------------
+  # 2. PHP 8 + Apache (aplikasi utama)
+  # ------------------------------------------------------------
+  php-apache-qullah:
+    build:
+      context: .
+      dockerfile: php-apache.Containerfile
+    container_name: php-apache-qullah
+    ports:
+      - "8000:80"            # Soal 5a
+    volumes:
+      - ./www:/var/www/html  # Soal 5a: 1 bind mount (uploads/ tercakum di dalamnya)
+    depends_on:
+      - mariadb-qullah       # MariaDB jalan dulu
+    restart: unless-stopped
+
+  # ------------------------------------------------------------
+  # 3. phpMyAdmin (tool verifikasi - Soal 8)
+  # ------------------------------------------------------------
+  phpmyadmin-qullah:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-qullah
+    ports:
+      - "8001:80"            # Soal 5c
+    environment:
+      PMA_HOST: mariadb-qullah
+      PMA_USER: kos_user
+      PMA_PASSWORD: kos_pass123
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      - mariadb-qullah
+    restart: unless-stopped
+
+# Named volume deklarasi (Soal 5b)
+volumes:
+  db_data_qullah:

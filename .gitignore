@@ -1,0 +1,11 @@
+uploads/*
+!uploads/default.jpg
+.env
+*.log
+.opencode/
+graphify-out/
+__pycache__/
+*.tmp
+.DS_Store
+Thumbs.db
+NUL
