@@ -1,4 +1,4 @@
-# Kos Qullah — Aplikasi Manajemen Kos-Kosan
+# KosQu — Aplikasi Manajemen Kos-Kosan
 
 Tugas 2 Cloud Computing — **Platform as a Service Berbasis Podman** (M. Rizqullah / `qullah`).
 Stack: **PHP 8 (procedural) + MariaDB 10 + Apache + Podman Compose**, Bootstrap 5 via CDN.
