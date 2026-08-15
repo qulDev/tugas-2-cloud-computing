@@ -101,8 +101,8 @@ INSERT INTO admin (username, password_hash, nama_lengkap) VALUES
 ('admin', '$2b$10$PjxvhDIVvyXwnLDjAtHL5.R64AiQiIjm5yra2R145pe8lXuTu8nge', 'Administrator Kos');
 
 INSERT INTO kos (nama_kos, alamat, tipe_kamar, harga_per_bulan, jumlah_kamar, status, foto) VALUES
-('Kos Melati Jaya',   'Jl. Merdeka No.5, Mataram',       'Putri', 500000, 10, 'Tersedia', NULL),
-('Kos Sentosa Abadi', 'Jl. Diponegoro No.12, Cakranegara','Putra', 450000,  8, 'Tersedia', NULL);
+('Kos Melati Jaya',   'Jl. Merdeka No.5, Mataram',       'Putri', 500000, 10, 'Tersedia', 'uploads/seed_melati.jpg'),
+('Kos Sentosa Abadi', 'Jl. Diponegoro No.12, Cakranegara','Putra', 450000,  8, 'Tersedia', 'uploads/seed_sentosa.jpg');
 
 INSERT INTO kategori (nama, tipe) VALUES
 ('Sewa',      'Pendapatan'),
