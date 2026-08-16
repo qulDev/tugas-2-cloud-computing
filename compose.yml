@@ -34,7 +34,7 @@ services:
     ports:
       - "8000:80"            # Soal 5a
     volumes:
-      - ./www:/var/www/html  # Soal 5a: 1 bind mount (uploads/ tercakum di dalamnya)
+      - ./www:/var/www/html:Z  # Soal 5a: bind mount; :Z = label SELinux (wajib di RHEL agar container bisa baca file)
     depends_on:
       - mariadb-qullah       # MariaDB jalan dulu
     restart: unless-stopped
