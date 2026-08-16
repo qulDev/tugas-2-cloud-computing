@@ -43,6 +43,9 @@ uas/
 ## Cara Menjalankan
 
 ```bash
+# 0. WAJIB di RHEL/Fedora (lab RHA): izinkan container menulis ke uploads/
+chmod 777 www/uploads
+
 # 1. Build & start 3 container (MariaDB jalan pertama via depends_on)
 podman compose up -d --build
 

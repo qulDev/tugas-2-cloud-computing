@@ -636,7 +636,7 @@ git add . && git commit -m "feat: polishing UI Bootstrap (Faze 6)" && git push
 |---|-------|-----|
 | 1 | "Connection refused" PHP→DB | Host pakai `mariadb-qullah`, bukan `localhost` |
 | 2 | phpMyAdmin login gagal | Pakai `kos_user`/`kos_pass123`, bukan root |
-| 3 | Upload foto gagal | `chmod 755 www/uploads` |
+| 3 | Upload foto gagal ("Gagal menyimpan foto") | `chmod 777 www/uploads` di host (file clone dimiliki uid user, sedangkan Apache container jalan sebagai www-data uid 33 yang butuh izin tulis) |
 | 4 | Session tidak persist | `session_start()` di paling atas tiap file butuh session |
 | 5 | bcrypt hash tidak match | Generate via `php -r "echo password_hash(...);"` |
 | 6 | Port dipakai app lain | `ss -tlnp \| grep <port>`, ganti port di compose |
